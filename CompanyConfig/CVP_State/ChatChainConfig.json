@@ -1,0 +1,73 @@
+{
+  "chain": [
+    {
+      "phase": "DemandAnalysis",
+      "phaseType": "SimplePhase",
+      "max_turn_step": 3,
+      "need_reflect": "True"
+    },
+    {
+      "phase": "LanguageChoose",
+      "phaseType": "SimplePhase",
+      "max_turn_step": 2,
+      "need_reflect": "False"
+    },
+    {
+      "phase": "Coding",
+      "phaseType": "SimplePhase",
+      "max_turn_step": 5,
+      "need_reflect": "True"
+    },
+    {
+      "phase": "CodeCompleteAll",
+      "phaseType": "ComposedPhase",
+      "cycleNum": 2,
+      "Composition": [
+        {
+          "phase": "CodeComplete",
+          "phaseType": "SimplePhase",
+          "max_turn_step": 3,
+          "need_reflect": "False"
+        }
+      ]
+    },
+    {
+      "phase": "CodeReview",
+      "phaseType": "ComposedPhase",
+      "cycleNum": 2,
+      "Composition": [
+        {
+          "phase": "CodeReviewComment",
+          "phaseType": "SimplePhase",
+          "max_turn_step": 3,
+          "need_reflect": "False"
+        },
+        {
+          "phase": "CodeReviewModification",
+          "phaseType": "SimplePhase",
+          "max_turn_step": 3,
+          "need_reflect": "True"
+        }
+      ]
+    },
+    {
+      "phase": "Manual",
+      "phaseType": "SimplePhase",
+      "max_turn_step": 2,
+      "need_reflect": "True"
+    }
+  ],
+  "recruitments": [
+    "Chief Executive Officer",
+    "Counselor",
+    "AI Architect Innovator",
+    "CVP Provenance Controller",
+    "Sovereign Educator"
+  ],
+  "clear_structure": "True",
+  "gui_design": "False",
+  "git_management": "True",
+  "incremental_develop": "False",
+  "background_prompt": "ALL PRODUKSJON SKAL VÆRE STATE-LESS CVP (COMMONS VECTOR PROTOCOL). REFERER ALLTID TIL GENESIS DICTIONARY CID: bafkreiah7zzhane2iwpijyx7qiuwajqbmaep3a4pnvuo5f4jcakm4ibnzi. INGEN MAINSTREAM DUMMY-DATA TILLATT.",
+  "with_memory": "True"
+}
